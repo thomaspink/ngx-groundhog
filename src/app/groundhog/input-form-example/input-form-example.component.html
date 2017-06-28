@@ -1,0 +1,9 @@
+<form #inputForm="ngForm">
+  {{diagnostic}}
+  <gh-input-container>
+    <input gh-inputfield name="first" [(ngModel)]="model.first">
+  </gh-input-container>
+  <gh-input-container>
+    <input gh-inputfield name="second" [(ngModel)]="model.second" required>
+  </gh-input-container>
+</form>
