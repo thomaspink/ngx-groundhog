@@ -9,8 +9,7 @@ import { ExpandableComponent } from './expandable/expandable.component';
     CommonModule
   ],
 
-  declarations: [ButtonDirective, CheckboxComponent]
-  exports: [ButtonDirective, ExpandableComponent],
-  declarations: [ButtonDirective, ExpandableComponent]
+  declarations: [ButtonDirective, CheckboxComponent, ExpandableComponent],
+  exports: [ButtonDirective, CheckboxComponent, ExpandableComponent]
 })
 export class GroundhogModule { }
