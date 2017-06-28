@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
     AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    GroundhogModule,
   ],
-  providers: [GroundhogModule],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
