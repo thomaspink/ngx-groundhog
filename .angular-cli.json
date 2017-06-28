@@ -23,7 +23,7 @@
       ],
       "stylePreprocessorOptions": {
         "includePaths": [
-          "../node_modules/@dynatrace/groundhog/src"
+          "../node_modules/@dynatrace/groundhog/dist/css"
         ]
       },
       "scripts": [],
