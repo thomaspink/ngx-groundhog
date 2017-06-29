@@ -3,8 +3,7 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'input-form-example',
-  templateUrl: './input-form-example.component.html',
-  styleUrls: ['./input-form-example.component.scss']
+  templateUrl: './input-form-example.component.html'
 })
 export class InputFormExampleComponent implements OnInit {
 
