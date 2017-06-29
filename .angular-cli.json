@@ -21,11 +21,6 @@
       "styles": [
         "styles.css"
       ],
-      "stylePreprocessorOptions": {
-        "includePaths": [
-          "../node_modules/@dynatrace/groundhog/dist/css"
-        ]
-      },
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -1,10 +1,16 @@
 <form #inputForm="ngForm">
   <gh-input-container uid="firstid">
     <label gh-label>First</label>
-    <input gh-inputfield name="first" [(ngModel)]="model.first">
+    <input gh-inputfield type="text" name="first" [(ngModel)]="model.first">
   </gh-input-container>
-  <gh-input-container uid="secondid">
+  <gh-input-container>
     <label gh-label>Second</label>
-    <input gh-inputfield name="second" id="override" [(ngModel)]="model.second" required>
+    <input gh-inputfield type="text" name="second" id="override" [(ngModel)]="model.second" required>
+  </gh-input-container>
+
+  <gh-input-container uid="thirdid">
+    <label gh-label>third</label>
+    <input gh-inputfield type="text" required>
+    <p gh-hint>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
   </gh-input-container>
 </form>

@@ -2,6 +2,7 @@ import { AfterViewInit, AfterContentInit, AfterContentChecked, Component, OnInit
 
 import { InputfieldDirective } from './inputfield.directive';
 import { LabelDirective } from './label.directive';
+import { HintDirective } from './hint.directive';
 
 let nextUniqueId = 0;
 
@@ -12,7 +13,6 @@ let nextUniqueId = 0;
   moduleId: module.id,
   selector: 'gh-input-container',
   templateUrl: './input-container.component.html',
-  styleUrls: ['./input-container.component.scss'],
   host: {
     // Remove align attribute to prevent it from interfering with layout.
     '[attr.uid]': '_shouldSetIdForChildren()',
@@ -39,31 +39,16 @@ export class InputContainerComponent implements AfterViewInit, AfterContentInit,
   get uid() { return this._uid; }
   set uid(value: string) {this._uid = value }
 
-  /** Text for the input hint. */
-  @Input()
-  get hintLabel() { return this._hintLabel; }
-  set hintLabel(value: string) {
-    this._hintLabel = value;
-    this._processHint();
-  }
-  private _hintLabel = '';
-
-  // Unique id for the hint label.
-  _hintLabelId: string = `gh-input-hint-${nextUniqueId++}`;
-
   @ContentChild(InputfieldDirective) _inputChild: InputfieldDirective;
   @ContentChild(LabelDirective) _labelChild: LabelDirective;
 
-  // @ContentChild(Hint) _hint: Hint;
+  @ContentChild(HintDirective) _hint: HintDirective;
 
   constructor(public _elementRef: ElementRef, private _changeDetectorRef: ChangeDetectorRef) {}
 
   ngAfterContentInit() {
     this._validateInputChild();
-    this._processHint();
-
-    // Re-validate when things change.
-    // this._hint.changes.subscribe(() => this._processHint());
+    this._syncAriaDescribedby();
   }
 
   ngAfterContentChecked() {
@@ -98,23 +83,16 @@ export class InputContainerComponent implements AfterViewInit, AfterContentInit,
   _focusInput() { this._inputChild.focus(); }
 
   /**
-   * Does any extra processing that is required when handling the hints.
-   */
-  private _processHint() {
-    // this._syncAriaDescribedby();
-  }
-
-  /**
    * Sets the child input's `aria-describedby` to a space-separated list of the ids
    * of the currently-specified hints, as well as a generated id for the hint label.
    */
-  // private _syncAriaDescribedby() {
-  //   if (this._inputChild) {
-  //     if (this._hint) {
-  //       this._inputChild.ariaDescribedby = this._hint.id;
-  //     }
-  //   }
-  // }
+  private _syncAriaDescribedby() {
+    if (this._inputChild) {
+      if (this._hint) {
+        this._inputChild.ariaDescribedby = this._hint.id;
+      }
+    }
+  }
 
   /**
    * Throws an error if the container's input child was removed.
