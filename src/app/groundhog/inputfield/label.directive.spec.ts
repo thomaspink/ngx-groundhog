@@ -5,8 +5,4 @@ describe('LabelDirective', () => {
     const directive = new LabelDirective();
     expect(directive).toBeTruthy();
   });
-  it('should always have a for property', () => {
-    const directive = new LabelDirective();
-    expect(directive.for).toBeTruthy();
-  });
 });

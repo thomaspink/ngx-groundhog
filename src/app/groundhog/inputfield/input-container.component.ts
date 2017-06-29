@@ -99,7 +99,7 @@ export class InputContainerComponent implements AfterViewInit, AfterContentInit,
    */
   private _validateInputChild() {
     if (!this._inputChild) {
-      throw new Error('input child was removed');
+      throw new Error('gh-input-container must have an input child');
     }
   }
 }
