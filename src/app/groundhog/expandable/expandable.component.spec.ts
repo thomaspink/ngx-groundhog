@@ -26,7 +26,7 @@ describe('ExpandableComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should expanded and collapse the content', () => {
+  it('should expand and collapse the content', () => {
     let el = fixture.debugElement.query(By.css('.expandable'));
     fixture.detectChanges();
     expect(el.classes['is-active']).toBeFalsy();
