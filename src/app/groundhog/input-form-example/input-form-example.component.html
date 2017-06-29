@@ -1,9 +1,10 @@
 <form #inputForm="ngForm">
-  {{diagnostic}}
-  <gh-input-container>
+  <gh-input-container uid="firstid">
+    <label gh-label>First</label>
     <input gh-inputfield name="first" [(ngModel)]="model.first">
   </gh-input-container>
-  <gh-input-container>
-    <input gh-inputfield name="second" [(ngModel)]="model.second" required>
+  <gh-input-container uid="secondid">
+    <label gh-label>Second</label>
+    <input gh-inputfield name="second" id="override" [(ngModel)]="model.second" required>
   </gh-input-container>
 </form>

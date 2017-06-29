@@ -1,6 +1,7 @@
 import { AfterViewInit, AfterContentInit, AfterContentChecked, Component, OnInit, Input, ViewEncapsulation, ChangeDetectorRef, ElementRef, ContentChild } from '@angular/core';
 
 import { InputfieldDirective } from './inputfield.directive';
+import { LabelDirective } from './label.directive';
 
 let nextUniqueId = 0;
 
@@ -14,6 +15,7 @@ let nextUniqueId = 0;
   styleUrls: ['./input-container.component.scss'],
   host: {
     // Remove align attribute to prevent it from interfering with layout.
+    '[attr.uid]': '_shouldSetIdForChildren()',
     '[attr.align]': 'null',
     '[class.gh-inputfield-invalid]': '_inputChild._isErrorState()',
     '[class.gh-focused]': '_inputChild.focused',
@@ -31,6 +33,12 @@ let nextUniqueId = 0;
 
 export class InputContainerComponent implements AfterViewInit, AfterContentInit, AfterContentChecked {
 
+  private _uid: string;
+
+  @Input()
+  get uid() { return this._uid; }
+  set uid(value: string) {this._uid = value }
+
   /** Text for the input hint. */
   @Input()
   get hintLabel() { return this._hintLabel; }
@@ -44,6 +52,7 @@ export class InputContainerComponent implements AfterViewInit, AfterContentInit,
   _hintLabelId: string = `gh-input-hint-${nextUniqueId++}`;
 
   @ContentChild(InputfieldDirective) _inputChild: InputfieldDirective;
+  @ContentChild(LabelDirective) _labelChild: LabelDirective;
 
   // @ContentChild(Hint) _hint: Hint;
 
@@ -69,6 +78,17 @@ export class InputContainerComponent implements AfterViewInit, AfterContentInit,
   _shouldForward(prop: string): boolean {
     let control = this._inputChild ? this._inputChild._ngControl : null;
     return control && (control as any)[prop];
+  }
+
+  _shouldSetIdForChildren() {
+    if(this._uid) {
+      if(this._inputChild) {
+        this._inputChild.id = this._inputChild.id || this._uid;
+      }
+      if(this._labelChild) {
+        this._labelChild.for = this._labelChild.for || this._inputChild.id;
+      }
+    }
   }
 
   /** Whether the input has a placeholder. */

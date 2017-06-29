@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'input-form-example',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class InputFormExampleComponent implements OnInit {
 
   model: any;
+  @ViewChild('inputForm') inputForm: NgForm;
 
   constructor() {
     this.model = {
@@ -18,6 +20,4 @@ export class InputFormExampleComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  get diagnostic() { return JSON.stringify(this.model); }
 }
