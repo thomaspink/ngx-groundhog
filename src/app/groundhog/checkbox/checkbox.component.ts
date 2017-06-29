@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'gh-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css']
+  styleUrls: ['./checkbox.component.scss']
 })
 
 export class CheckboxComponent {
-  componentName: 'AppComponent'
+
+  @Input() disable: boolean = false;
+
+
   constructor() {
-    console.log('My name is Katrin')
   }
 }
