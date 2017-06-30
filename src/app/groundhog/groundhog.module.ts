@@ -5,7 +5,6 @@ import { ButtonDirective } from './button/button.directive';
 import { ExpandableComponent } from './expandable/expandable.component';
 import { InputfieldDirective } from './inputfield/inputfield.directive';
 import { InputContainerComponent } from './inputfield/input-container.component';
-import { InputFormExampleComponent } from './input-form-example/input-form-example.component';
 import { LabelDirective } from './inputfield/label.directive';
 import { HintDirective } from './inputfield/hint.directive';
 
@@ -14,7 +13,7 @@ import { HintDirective } from './inputfield/hint.directive';
     CommonModule,
     FormsModule
   ],
-  exports: [ButtonDirective, ExpandableComponent, InputfieldDirective, InputContainerComponent, InputFormExampleComponent, LabelDirective, HintDirective],
-  declarations: [ButtonDirective, ExpandableComponent, InputfieldDirective, InputContainerComponent, InputFormExampleComponent, LabelDirective, HintDirective]
+  exports: [ButtonDirective, ExpandableComponent, InputfieldDirective, InputContainerComponent, LabelDirective, HintDirective],
+  declarations: [ButtonDirective, ExpandableComponent, InputfieldDirective, InputContainerComponent, LabelDirective, HintDirective]
 })
 export class GroundhogModule { }
