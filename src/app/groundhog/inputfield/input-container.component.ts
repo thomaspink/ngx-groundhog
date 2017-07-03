@@ -37,14 +37,17 @@ export class InputContainerComponent implements AfterViewInit, AfterContentInit,
 
   @Input()
   get uid() { return this._uid; }
-  set uid(value: string) {this._uid = value }
+  set uid(value: string) {this._uid = value || `gh-input-container-${nextUniqueId++}` }
 
   @ContentChild(InputfieldDirective) _inputChild: InputfieldDirective;
   @ContentChild(LabelDirective) _labelChild: LabelDirective;
 
   @ContentChild(HintDirective) _hint: HintDirective;
 
-  constructor(public _elementRef: ElementRef, private _changeDetectorRef: ChangeDetectorRef) {}
+  constructor(public _elementRef: ElementRef, private _changeDetectorRef: ChangeDetectorRef) {
+    // Force setter to be called in case id was not specified.
+    this.uid = this.uid;
+  }
 
   ngAfterContentInit() {
     this._validateInputChild();
@@ -99,7 +102,7 @@ export class InputContainerComponent implements AfterViewInit, AfterContentInit,
    */
   private _validateInputChild() {
     if (!this._inputChild) {
-      throw new Error('input child was removed');
+      throw new Error('gh-input-container must have an input child');
     }
   }
 }

@@ -16,10 +16,9 @@ describe('InputContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(InputContainerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
+  it('should be created but throw error without input', () => {
+    expect(() => fixture.detectChanges()).toThrowError("gh-input-container must have an input child");
   });
 });
