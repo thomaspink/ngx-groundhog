@@ -1,4 +1,6 @@
-<input type="checkbox" class="checkbox" id="cb1" [disabled]='disable'/>
+<input type="checkbox" class="checkbox" (change)="onTrigger()"
+  [checked]="checked"
+  [disabled]="disabled"/>
 <label for="cb1" class="checkbox__label">
-  <span class="checkbox__caption">Test</span>
+  <span class="checkbox__caption">{{title}}</span>
 </label>

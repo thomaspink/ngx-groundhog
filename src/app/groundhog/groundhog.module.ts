@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ButtonDirective } from './button/button.directive';
+import { ButtonPrimaryDirective } from './button/button.directive';
+import { ButtonSecondaryDirective } from './button/button.directive';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ExpandableComponent } from './expandable/expandable.component';
 import { InputfieldDirective } from './inputfield/inputfield.directive';
@@ -14,7 +15,7 @@ import { HintDirective } from './inputfield/hint.directive';
     CommonModule,
     FormsModule
   ],
-  exports: [ButtonDirective, ExpandableComponent, InputfieldDirective, InputContainerComponent, LabelDirective, HintDirective],
-  declarations: [ButtonDirective, ExpandableComponent, InputfieldDirective, InputContainerComponent, LabelDirective, HintDirective]
+  exports: [ButtonPrimaryDirective, ButtonSecondaryDirective, ExpandableComponent, InputfieldDirective, InputContainerComponent, LabelDirective, HintDirective, CheckboxComponent],
+  declarations: [ButtonPrimaryDirective, ButtonSecondaryDirective, ExpandableComponent, InputfieldDirective, InputContainerComponent, LabelDirective, HintDirective, CheckboxComponent]
 })
 export class GroundhogModule { }
